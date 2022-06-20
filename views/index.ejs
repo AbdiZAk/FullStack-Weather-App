@@ -20,7 +20,7 @@
 </header>
 <body>
 <!--Nav bar-->
-
+<navbar></navbar>
 <div class="container">
     <div class="w-grid">
         <div class="box-weather">
@@ -30,6 +30,7 @@
 
     </div>
 </div>
+
 <div class="container">
     <div class="grid-resents">
 
@@ -39,7 +40,10 @@
             <hr>
             <div id="duplicate" class="recent-rect">
                 <p class="recent-items"></p>
+                <i id="x" class="bi bi-x-lg"></i>
             </div>
+
+
 
         </div>
     </div>
@@ -48,7 +52,9 @@
     <h2 id="location">Weather in syracuse</h2>
     <hr>
 </div>
-
+<div class="placeholder">
+    <h1>Please type an address in the search box above to see weather results.</h1>
+</div>
 <div id="weather-results" class="container">
     <div class="grid">
         <div id="first-box" class="box">
@@ -109,16 +115,18 @@
 
 </div>
 </body>
-<footer>
+<footer id="footer">
     <div class="container">
         <div class="footer-grid">
             <div class="footer-box">
-                <p>Page Last Updated 3/17/2022</p>
+                <p>Page Last Updated 6/19/2022</p>
                 <p>Copyright <span>&copy;</span> 2022 Abdirezak Yusuf</p>
             </div>
             <div id="socials" class="footer-box">
-                <i class="bi bi-linkedin"></i><br>
-                <i class="bi bi-instagram"></i>
+                <a href="https://www.linkedin.com/in/abdirezak-yusuf-a86944233/" target="_blank">
+                    <i class="bi bi-linkedin"></i> LinkedIn Profile
+                </a><br>
+                <a href="https://github.com/AbdiZAk" target="_blank"><i class="bi bi-github"></i>github/AbdiZAk</a><br>
 
             </div>
         </div>

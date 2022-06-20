@@ -19,7 +19,10 @@ const getWeatherData = async (lat, lon) =>{
 
 
 router.get('/', function(req, res, next) {
-  res.json({success: "Hello Weather"})
+
+  //Setting store key and data
+  res.json({success: "Welcome to the Weather API"})
+
 });
 
 router.get("/:lat&:lon", async (req, res) => {

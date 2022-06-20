@@ -38,18 +38,21 @@ const config = {
             scriptLoading: 'defer',
         }),
         new MiniCssExtractPlugin(),
-        new CleanWebpackPlugin(),
-        new HtmlWebpackPartialsPlugin({
-            path: ('./public/partials/navbar.html'),
-            location: 'navigation',
-            template_filename: ['index.ejs']
-        }),
+        // new CleanWebpackPlugin(),
         new HtmlWebpackPartialsPlugin({
             path: './views/partials/navbar.ejs',
             inject: true,
             location: "navbar",
+            priority: "replace",
+        }),
+
+        new HtmlWebpackPartialsPlugin({
+            path: './views/partials/head.ejs',
+            inject: true,
+            location: "header",
             priority: "replace"
         })
+
     ],
     mode: process.env.NODE_ENV === "production" ? "production" : "development",
 };

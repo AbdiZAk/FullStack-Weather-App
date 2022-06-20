@@ -3,9 +3,10 @@ const express = require('express');
 const router = express.Router();
 const fs = require('fs');
 const fetch = require('node-fetch')
-
+const cors = require('cors')
 let AutocompleteApiKey = process.env.AUTOCOMPLETE_API_KEY
 // GET weather api page.
+
 router.get('/', function(req, res, next) {
     //get weather api params
     console.log(req.query)

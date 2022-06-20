@@ -1,13 +1,19 @@
 // errors
 const errors = document.querySelectorAll('.errors')
-// recent searches array
+
 let recentsArray = []
+
+let footer = document.getElementById('footer')
+let placeholder = document.querySelector('placeholder')
+let boxRecent = document.querySelector('.box-recent')
+let recentRect = document.querySelector('.recent-rect')
+let recentItems = recentRect.firstElementChild
+
+allRecs = document.querySelectorAll('.recent-rect')
+let dublicateCount = 0
 
 // function to get call the backend api relay to get weather data
 function getWeather(lat, lon, location){
-    // div of recent searches
-    let boxRecent = document.querySelector('.box-recent')
-
     // if the lat and lon are not null
     if(lat && lon) {
         document.getElementById('location').scrollIntoView();
@@ -63,8 +69,9 @@ function getWeather(lat, lon, location){
             let sunRizeElm = document.getElementById('sun-rise')
             let sunSetElm = document.getElementById('sun-set')
             let iconurl = `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`
-            let recentRect = document.querySelector('.recent-rect')
-            let recentItems = recentRect.firstElementChild
+            let duplicate = document.getElementById('duplicate')
+            let cross = document.querySelectorAll('.bi-x-lg')
+
 
             //Format Unix time
             function formatUnixTime(unixTime){
@@ -102,27 +109,18 @@ function getWeather(lat, lon, location){
             sunRizeElm.innerText = `sun rise: ${sunRise}am`
             sunSetElm.innerText = `${sunSet}pm`
             let weatherResults = document.getElementById('weather-results')
+            footer.style.position = 'relative'
+
             weatherResults.style.display = 'inline-block'
+            placeholder.style.display = 'none'
             locationDiv.style.display = 'block'
-
-
             recentsArray.push(location)
-            if (recentsArray.length === 1 ){
-                boxRecent.style.display = 'block'
-                recentItems.innerHTML = `${location}`
-            }else{
-                let newDiv = document.createElement("div")
-                let i = 0
-                let clone = recentRect.cloneNode(true); // "deep" clone
-                clone.id = "duplicate" + ++i;
-                // or clone.id = ""; if the divs don't need an ID
-                recentRect.parentNode.appendChild(clone);
-                boxRecent.style.display = 'block'
-                recentItems.innerHTML = location
-            }
 
-        }
-    }
+
+
+
+        } // end of useData function
+    } // end if else
 
 
 }
@@ -207,8 +205,7 @@ function addressAutocomplete(containerElement, callback, options) {
             const promise = new Promise((resolve, reject) => {
                 currentPromiseReject = reject;
 
-                // let url = `https://api.geoapify.com/v1/geocode/autocomplete?text=${encodeURIComponent(currentValue)}&format=json&limit=5&apiKey=${AutocompleteApiKey}`;
-                let url = `http://localhost:3000/autocomplete-api/?text=${encodeURIComponent(currentValue)}`
+                let url = `/autocomplete-api/?text=${encodeURIComponent(currentValue)}`
                 fetch(url)
                     .then(response => {
                         currentPromiseReject = null;
@@ -354,4 +351,3 @@ addressAutocomplete(document.getElementById("autocomplete-container"), (data) =>
     placeholder: "Enter an address here"
 });
 // end of autocomplete function
-
