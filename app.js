@@ -4,7 +4,6 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors')
-const rateLimit = require('express-rate-limit')
 require('dotenv').config();
 
 // configure app views and static files
@@ -24,7 +23,6 @@ const corsOptions = {
   },
   optionsSuccessStatus: 200
 }
-
 
 // Configure app
 app.set('view engine', 'ejs');
@@ -51,8 +49,6 @@ app.use('/', main);
 app.use(cors(corsOptions));
 app.use('/v1/weather-api', weatherApi);
 app.use('/v1/autocomplete-api', autoCompleteApi);
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

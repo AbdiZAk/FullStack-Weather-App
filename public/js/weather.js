@@ -5,12 +5,9 @@ let recentsArray = []
 
 let footer = document.getElementById('footer')
 let placeholder = document.querySelector('.placeholder')
-let boxRecent = document.querySelector('.box-recent')
 let recentRect = document.querySelector('.recent-rect')
-let recentItems = recentRect.firstElementChild
 
 allRecs = document.querySelectorAll('.recent-rect')
-let dublicateCount = 0
 
 // function to get call the backend api relay to get weather data
 function getWeather(lat, lon, location){

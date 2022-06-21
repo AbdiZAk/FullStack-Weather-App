@@ -14,14 +14,4 @@ router.get('/', function(req, res, next) {
 });
 
 
-// router.get('/:page', (req, res) => {
-//     const page = req.params.page
-//     const myData = {
-//         page: page
-//     }
-//     res.render(page, {data: myData})
-//
-// })
-
-
 module.exports = router;
