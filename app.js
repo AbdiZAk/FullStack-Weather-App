@@ -7,17 +7,6 @@ const cors = require('cors')
 const rateLimit = require('express-rate-limit')
 require('dotenv').config();
 
-// For development
-const livereload = require('livereload')
-const connectLiveReload = require('connect-livereload')
-const liveReloadServer = livereload.createServer();
-liveReloadServer.server.once("connection", () => {
-  setTimeout(() => {
-    liveReloadServer.refresh("/");
-  }, 100);
-});
-
-
 // configure app views and static files
 const app = express();
 
@@ -37,21 +26,18 @@ const corsOptions = {
 }
 
 
-
-// For development
-app.use(connectLiveReload());
-
 // Configure app
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-// app.set('static', path.join(__dirname, 'public'));
 app.use(express.static('public'))
 app.use('/css', express.static(__dirname + 'public/css'))
 
+//main route for app (home page)
 const main = require('./routes/main');
 
-const weatherApi = require('./routes/weather-api')
-const autoCompleteApi = require('./routes/autocomplete-api')
+// API
+const weatherApi = require('./routes/v1/weather-api')
+const autoCompleteApi = require('./routes/v1/autocomplete-api')
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -63,8 +49,8 @@ app.use('/', main);
 
 // api routes that use cors
 app.use(cors(corsOptions));
-app.use('/weather-api', weatherApi);
-app.use('/autocomplete-api', autoCompleteApi);
+app.use('/v1/weather-api', weatherApi);
+app.use('/v1/autocomplete-api', autoCompleteApi);
 
 
 

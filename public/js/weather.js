@@ -4,7 +4,7 @@ const errors = document.querySelectorAll('.errors')
 let recentsArray = []
 
 let footer = document.getElementById('footer')
-let placeholder = document.querySelector('placeholder')
+let placeholder = document.querySelector('.placeholder')
 let boxRecent = document.querySelector('.box-recent')
 let recentRect = document.querySelector('.recent-rect')
 let recentItems = recentRect.firstElementChild
@@ -18,7 +18,7 @@ function getWeather(lat, lon, location){
     if(lat && lon) {
         document.getElementById('location').scrollIntoView();
         // Defining async function
-        let url = `/weather-api/${lat}&${lon}`
+        let url = `v1/weather-api/${lat}&${lon}`
         // get weather data from API
         fetch(url).then(response => {
             return response.json()
@@ -205,7 +205,7 @@ function addressAutocomplete(containerElement, callback, options) {
             const promise = new Promise((resolve, reject) => {
                 currentPromiseReject = reject;
 
-                let url = `/autocomplete-api/?text=${encodeURIComponent(currentValue)}`
+                let url = `/v1/autocomplete-api/?text=${encodeURIComponent(currentValue)}`
                 fetch(url)
                     .then(response => {
                         currentPromiseReject = null;
