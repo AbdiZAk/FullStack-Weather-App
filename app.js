@@ -9,15 +9,6 @@ require('dotenv').config();
 // configure app views and static files
 const app = express();
 
-const port = process.env.PORT || 3000;
-app.set('port', port);
-
-
-app.listen(port);
-app.on('listening', onListening);
-
-
-
 // return json
 app.use(express.json())
 
@@ -76,6 +67,14 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+
+const port = process.env.PORT || 3000;
+app.set('port', port);
+app.listen(port);
+app.on('listening', onListening);
+
+
+
 function onListening() {
   const addr = app.address();
   const bind = typeof addr === 'string'
@@ -83,6 +82,6 @@ function onListening() {
       : 'port ' + addr.port;
   console.log(`Server started at: http://localhost:${port}`)
 }
-
 console.log(`Server started at: http://localhost:${port}`)
+
 module.exports = app;

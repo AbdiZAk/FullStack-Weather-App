@@ -1,9 +1,13 @@
 {
+  "engines": {
+    "node": "16.x"
+  },
   "name": "express-app",
   "version": "0.0.0",
   "private": true,
+  "main": "app.js",
   "scripts": {
-    "serve-dev": "webpack serve",
+    "dev": "webpack serve",
     "webpack-build": "NODE_ENV='production' webpack",
     "start": "node app.js",
     "vercel-build": "node app.js",
