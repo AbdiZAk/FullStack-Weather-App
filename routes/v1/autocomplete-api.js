@@ -7,7 +7,6 @@ let AutocompleteApiKey = process.env.AUTOCOMPLETE_API_KEY
 
 router.get('/', function(req, res, next) {
     //get weather api params
-    console.log(req.query)
     let query = req.query
     let apiUrl = `https://api.geoapify.com/v1/geocode/autocomplete?text=${query.text}&format=json&
     limit=5&apiKey=${AutocompleteApiKey}`;
