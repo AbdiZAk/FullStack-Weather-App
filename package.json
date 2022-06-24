@@ -9,8 +9,9 @@
   "scripts": {
     "dev": "webpack serve",
     "webpack-build": "NODE_ENV='production' webpack",
-    "start": "node app.js",
+    "start": "node ./bin/www",
     "vercel-build": "node app.js",
+    "now-build": "NODE_ENV='production' webpack",
     "watch": "nodemon --ext *"
   },
   "dependencies": {

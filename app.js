@@ -55,9 +55,8 @@ app.use(function(req, res, next) {
   next(createError(404))
 });
 
-
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function(err, req, res) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {proError: "Page is not found on the server"};
@@ -67,21 +66,5 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-
-const port = process.env.PORT || 3000;
-app.set('port', port);
-app.listen(port);
-app.on('listening', onListening);
-
-
-
-function onListening() {
-  const addr = app.address();
-  const bind = typeof addr === 'string'
-      ? 'pipe ' + addr
-      : 'port ' + addr.port;
-  console.log(`Server started at: http://localhost:${port}`)
-}
-console.log(`Server started at: http://localhost:${port}`)
 
 module.exports = app;
