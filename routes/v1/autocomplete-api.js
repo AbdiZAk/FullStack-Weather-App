@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const router = express.Router();
-// const fetch = require('node-fetch')
+const fetch = require('node-fetch')
 let AutocompleteApiKey = process.env.AUTOCOMPLETE_API_KEY
 // GET weather api page.
 
