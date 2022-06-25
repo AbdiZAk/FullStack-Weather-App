@@ -3,7 +3,6 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const cors = require('cors')
 require('dotenv').config();
 
 // configure app views and static files
@@ -12,17 +11,6 @@ const app = express();
 // return json
 app.use(express.json())
 
-const whitelist = ['http://127.0.0.1:3000', "http://127.0.0.1:35729"]
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (!origin || whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error("Not allowed by CORS"))
-    }
-  },
-  optionsSuccessStatus: 200
-}
 
 // Configure app
 app.set('view engine', 'ejs');
@@ -46,7 +34,6 @@ app.use(cookieParser());
 app.use('/', main);
 
 // api routes that use cors
-app.use(cors(corsOptions));
 app.use('/v1/weather-api', weatherApi);
 app.use('/v1/autocomplete-api', autoCompleteApi);
 
