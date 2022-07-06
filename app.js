@@ -30,13 +30,13 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/css', express.static(__dirname + 'public/css'))
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/public/dist', 'index.html'))
+  res.sendFile(path.join(__dirname, '/views', 'index.ejs'))
 });
 
 
 
 //main route for app (home page)
-const main = require('./routes/main');
+// const main = require('./routes/main');
 
 // API
 const weatherApi = require('./routes/v1/weather-api')
@@ -48,7 +48,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // main app route
-app.use('/', main);
+// app.use('/', main);
 
 // api routes that use cors
 app.use(cors(corsOptions));
