@@ -29,17 +29,28 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/dist', 'index.html'))
 });
 
-// const weatherApi = require('./routes/v1/weather-api')
-// const autoCompleteApi = require('./routes/v1/autocomplete-api')
+const autoCompleteApi = require('./routes/v1/autocomplete-api')
+const weatherApi = require('./routes/v1/weather-api')
 
-// app.use('/v1/weather-api', weatherApi);
-// app.use('/v1/autocomplete-api', autoCompleteApi);
+app.use('https://ayweather.herokuapp.com/v1/autocomplete-api', autoCompleteApi);
+app.use('https://ayweather.herokuapp.com/v1/weather-api', weatherApi);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404))
 });
 
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {proError: "Page is not found on the server"};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+  next()
+});
 
 app.listen(process.env.PORT || 3000, () => {
   console.log(`Backend is running at PORT:${3000}`)
