@@ -12,5 +12,10 @@ router.get('/', function(req, res, next) {
     res.render('index', {data: myData});
 });
 
+router.get('/api', function(req, res, next) {
+
+    res.json({"message": "Hello"})
+});
+
 
 module.exports = router;
