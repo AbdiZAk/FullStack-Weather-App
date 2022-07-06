@@ -25,10 +25,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')))
 app.use('/css', express.static(__dirname + 'public/css'))
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/public/dist', 'index.html'))
-});
-
 const weatherApi = require('./routes/v1/weather-api')
 const autoCompleteApi = require('./routes/v1/autocomplete-api')
 
@@ -52,6 +48,10 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
   next()
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/public/dist', 'index.html'))
 });
 
 app.listen(process.env.PORT || 3000, () => {
