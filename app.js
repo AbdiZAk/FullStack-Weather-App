@@ -25,10 +25,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')))
 app.use('/css', express.static(__dirname + 'public/css'))
 
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '/public/dist', 'index.html'))
+});
+
 const weatherApi = require('./routes/v1/weather-api')
 const autoCompleteApi = require('./routes/v1/autocomplete-api')
-
-app.use(express.json());
 
 app.use('/v1/weather-api', weatherApi);
 app.use('/v1/autocomplete-api', autoCompleteApi);
@@ -38,9 +40,6 @@ app.use(function(req, res, next) {
   next(createError(404))
 });
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/public/dist', 'index.html'))
-});
 
 app.listen(process.env.PORT || 3000, () => {
   console.log(`Backend is running at PORT:${3000}`)
