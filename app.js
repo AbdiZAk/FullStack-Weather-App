@@ -29,11 +29,11 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/dist', 'index.html'))
 });
 
-const weatherApi = require('./routes/v1/weather-api')
-const autoCompleteApi = require('./routes/v1/autocomplete-api')
+// const weatherApi = require('./routes/v1/weather-api')
+// const autoCompleteApi = require('./routes/v1/autocomplete-api')
 
-app.use('/v1/weather-api', weatherApi);
-app.use('/v1/autocomplete-api', autoCompleteApi);
+// app.use('/v1/weather-api', weatherApi);
+// app.use('/v1/autocomplete-api', autoCompleteApi);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
