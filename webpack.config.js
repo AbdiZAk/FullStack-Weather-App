@@ -1,5 +1,4 @@
 const path = require("path");
-const fs = require('fs')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackPartialsPlugin = require('html-webpack-partials-plugin')
@@ -18,7 +17,7 @@ const config = {
                 use: "babel-loader",
             },
             {
-                test: /\.css$/i,
+                test: /\.css$/,
                 use: [MiniCssExtractPlugin.loader, "css-loader"],
             },
             {
@@ -37,8 +36,10 @@ const config = {
             filename: 'index.html',
             scriptLoading: 'defer',
         }),
-        new MiniCssExtractPlugin(),
-        // new CleanWebpackPlugin(),
+        new MiniCssExtractPlugin({
+            filename: "main.css",
+        }),
+        new CleanWebpackPlugin(),
         new HtmlWebpackPartialsPlugin({
             path: './views/partials/navbar.ejs',
             inject: true,

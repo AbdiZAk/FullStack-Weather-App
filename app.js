@@ -4,7 +4,6 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors')
-require('dotenv').config();
 
 // configure app views and static files
 const app = express();
@@ -24,11 +23,17 @@ const corsOptions = {
   optionsSuccessStatus: 200
 }
 
-// Configure app
+// Configure app views and static files
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-app.use(express.static('public'))
+app.use(express.static(path.join(__dirname, 'public')))
 app.use('/css', express.static(__dirname + 'public/css'))
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/public/dist', 'index.html'))
+});
+
+
 
 //main route for app (home page)
 const main = require('./routes/main');
@@ -66,6 +71,10 @@ app.use(function(err, req, res, next) {
   res.render('error');
   next()
 });
+
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`Backend is running at PORT:${3000}`)
+})
 
 
 module.exports = app;

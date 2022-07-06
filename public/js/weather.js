@@ -7,15 +7,14 @@ let footer = document.getElementById('footer')
 let placeholder = document.querySelector('.placeholder')
 let recentRect = document.querySelector('.recent-rect')
 
-allRecs = document.querySelectorAll('.recent-rect')
-
+const baseUrl = "https://ayweather.herokuapp.com/"
 // function to get call the backend api relay to get weather data
 function getWeather(lat, lon, location){
     // if the lat and lon are not null
     if(lat && lon) {
         document.getElementById('location').scrollIntoView();
         // Defining async function
-        let url = `v1/weather-api/${lat}&${lon}`
+        let url = `${baseUrl}v1/weather-api/${lat}&${lon}`
         // get weather data from API
         fetch(url).then(response => {
             return response.json()
@@ -202,7 +201,7 @@ function addressAutocomplete(containerElement, callback, options) {
             const promise = new Promise((resolve, reject) => {
                 currentPromiseReject = reject;
 
-                let url = `/v1/autocomplete-api/?text=${encodeURIComponent(currentValue)}`
+                let url = `${baseUrl}/v1/autocomplete-api/?text=${encodeURIComponent(currentValue)}`
                 fetch(url)
                     .then(response => {
                         currentPromiseReject = null;

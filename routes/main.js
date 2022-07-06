@@ -10,7 +10,6 @@ router.get('/', function(req, res, next) {
     }
 
     res.render('index', {data: myData});
-    // res.json({mess: "Weather-api"})
 });
 
 

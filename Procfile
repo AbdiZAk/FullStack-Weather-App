@@ -1,3 +1,0 @@
-web: node bin/www
-
-
