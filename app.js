@@ -29,6 +29,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/dist', 'index.html'))
 });
 
+app.get('/api', (req, res) => {
+  res.json({"message": "hello"})
+});
+
 // const autoCompleteApi = require('./routes/v1/autocomplete-api')
 // const weatherApi = require('./routes/v1/weather-api')
 
