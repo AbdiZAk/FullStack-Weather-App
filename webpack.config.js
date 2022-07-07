@@ -33,7 +33,8 @@ const config = {
     plugins: [
         new HtmlWebpackPlugin({
             template: '!!ejs-webpack-loader!./views/index.ejs',
-            filename: 'index.html'
+            filename: 'index.html',
+            scriptLoading: 'defer',
         }),
         new MiniCssExtractPlugin({
             filename: "main.css",
