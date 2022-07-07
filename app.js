@@ -1,9 +1,9 @@
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
-const fetch = require("node-fetch");
-const autocompleteApi = require("./routes/v1/autocomplete-api")
-const weatherApi = require("./routes/v1/weather-api")
+// const fetch = require("node-fetch");
+// const autocompleteApi = require("./routes/v1/autocomplete-api")
+// const weatherApi = require("./routes/v1/weather-api")
 // configure app views and static files
 const app = express();
 
