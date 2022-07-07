@@ -1,8 +1,6 @@
 require('dotenv').config();
-const express = require('express');
-const router = express.Router();
+const router = require("express").Router();
 const fetch = require('node-fetch')
-
 // get weather data
 const getWeatherData = async (lat, lon) =>{
   let weatherApiKey = process.env.WEATHER_API_KEY;
@@ -24,7 +22,7 @@ router.get('/', function(req, res, next) {
 
 });
 
-router.get("/:lat&:lon", async (req, res) => {
+router.get(":lat&:lon", async (req, res) => {
   req.header("Access-Control-Allow-Origin",)
   const lat = req.params.lat
   const lon = req.params.lon
@@ -40,5 +38,4 @@ router.post('/', async (req, res) =>{
   res.json(weatherData)
 })
 
-
-module.exports = router;
+module.exports = router

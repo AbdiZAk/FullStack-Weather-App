@@ -2,6 +2,8 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const fetch = require("node-fetch");
+const autocompleteApi = require("./routes/v1/autocomplete-api")
+const weatherApi = require("./routes/v1/weather-api")
 // configure app views and static files
 const app = express();
 
@@ -30,12 +32,8 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/dist', 'index.html'))
 });
 
-
-const autoCompleteApi = require('./routes/v1/autocomplete-api')
-const weatherApi = require('./routes/v1/weather-api')
-
-app.get('v1/autocomplete-api', autoCompleteApi);
-app.get('/v1/weather-api', weatherApi);
+app.use("/v1/weather-api", weatherApi)
+app.use("/v1/autocomplete-api", autocompleteApi)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -58,4 +56,3 @@ app.listen(process.env.PORT || 3000, () => {
   console.log(`Backend is running at PORT:${3000}`)
 })
 
-module.exports = app;
