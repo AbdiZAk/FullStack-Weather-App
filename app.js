@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/css', express.static(__dirname + 'public/css'))
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '/views', 'index..ejs'))
+  res.sendFile(path.join(__dirname, '/public/dist', 'index.html'))
   // res.render(path.join(__dirname, '/views', 'index.ejs'))
 });
 
