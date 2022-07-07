@@ -7,9 +7,6 @@ const weatherApi = require("./routes/v1/weather-api")
 // configure app views and static files
 const app = express();
 
-// return json
-app.use(express.json())
-
 // const whitelist = ['http://127.0.0.1:3000', "http://127.0.0.1:35729"]
 // const corsOptions = {
 //   origin: (origin, callback) => {
@@ -32,8 +29,8 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/dist', 'index.html'))
 });
 
-app.use("/v1/weather-api", weatherApi)
-app.use("/v1/autocomplete-api", autocompleteApi)
+// app.use("/v1/weather-api", weatherApi)
+// app.use("/v1/autocomplete-api", autocompleteApi)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
