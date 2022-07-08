@@ -1,4 +1,3 @@
-const fetch = require('node-fetch')
 const axios = require("axios")
 
 AUTOCOMPLETE_API_KEY = "a2de75c9d4e14b87a354a37215aef683"
