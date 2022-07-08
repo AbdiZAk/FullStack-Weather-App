@@ -14,7 +14,7 @@ function getWeather(lat, lon, location){
     if(lat && lon) {
         document.getElementById('location').scrollIntoView();
         // Defining async function
-        let url = `${baseUrl}v1/weather-api/${lat}&${lon}`
+        let url = `${baseUrl}api/weather-api/${lat}&${lon}`
         // get weather data from API
         fetch(url).then(response => {
             return response.json()
@@ -201,7 +201,7 @@ function addressAutocomplete(containerElement, callback, options) {
             const promise = new Promise((resolve, reject) => {
                 currentPromiseReject = reject;
 
-                let url = `${baseUrl}/v1/autocomplete-api/?text=${encodeURIComponent(currentValue)}`
+                let url = `${baseUrl}/api/autocomplete-api/?text=${encodeURIComponent(currentValue)}`
                 fetch(url)
                     .then(response => {
                         currentPromiseReject = null;
