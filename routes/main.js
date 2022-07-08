@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const path = require("path")
-const WeatherAPI = require("../controllers/weather-api")
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
