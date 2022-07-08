@@ -13,15 +13,14 @@ async function getWeatherData(lat, lon){
 }
 
 const getWeather = async (req, res) => {
-    // // const lat = req.params.lat
-    // // const lon = req.params.lon
-    // const weatherData = await getWeatherData(lat, lon).catch(err => {
-    //     return {Error: err.stack}
-    // }).then(data => {
-    //     return data
-    // })
-    // res.status(200).json(weatherData.data)
-    res.json({weatherData: "weather controller"})
+    // const lat = req.params.lat
+    // const lon = req.params.lon
+    const weatherData = await getWeatherData(lat, lon).catch(err => {
+        return {Error: err.stack}
+    }).then(data => {
+        return data
+    })
+    res.status(200).json(weatherData.data)
 }
 
 module.exports = {
