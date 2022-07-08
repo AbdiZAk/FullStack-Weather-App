@@ -2,7 +2,7 @@ const createError = require('http-errors');
 const bodyParser = require("body-parser");
 const express = require('express');
 const path = require('path');
-const cors = require("cors")
+const cors = require('cors')
 const main = require("./routes/main")
 // configure app views and static files
 const app = express();
