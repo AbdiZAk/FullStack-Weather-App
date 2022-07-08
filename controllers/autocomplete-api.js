@@ -14,7 +14,7 @@ async function getAutocompleteData(text){
 // GET weather api page.
 const getAutocomplete = async (req, res) => {
     //get weather api params
-    let queryData = req.query
+    let queryData = req.query.text
     const suggestions = await getAutocompleteData(queryData).catch(err => {
         return {Error: err.stack}
     }).then(data => {
