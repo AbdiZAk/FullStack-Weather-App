@@ -20,7 +20,7 @@ const getWeather = async (req, res) => {
     }).then(data => {
         return data
     })
-    res.json(weatherData.data)
+    res.status(200).json(weatherData.data)
     // res.json({weatherData: "weather controller"})
 }
 
