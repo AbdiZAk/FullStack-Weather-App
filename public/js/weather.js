@@ -64,7 +64,7 @@ function getWeather(lat, lon, location){
             let pressureElm = document.getElementById('pressure')
             let sunRizeElm = document.getElementById('sun-rise')
             let sunSetElm = document.getElementById('sun-set')
-            let iconurl = `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`
+            let iconurl = `https://openweathermap.org/img/wn/${weatherIcon}@2x.png`
             let duplicate = document.getElementById('duplicate')
             let cross = document.querySelectorAll('.bi-x-lg')
 
