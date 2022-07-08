@@ -13,8 +13,8 @@ async function getWeatherData(lat, lon){
 }
 
 const getWeatherData_GET = async (req, res) => {
-    // const lat = req.params.lat
-    // const lon = req.params.lon
+    const lat = req.params.lat
+    const lon = req.params.lon
     const weatherData = await getWeatherData(lat, lon).catch(err => {
         return {Error: err.stack}
     }).then(data => {
@@ -32,7 +32,6 @@ const getWeatherData_POST = async (req, res) => {
     }).then(data => {
         return data
     })
-    console.log(weatherData.data)
     res.status(200).json(weatherData.data)
 }
 
