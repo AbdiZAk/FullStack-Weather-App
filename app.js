@@ -4,6 +4,7 @@ const path = require('path');
 // const fetch = require("node-fetch");
 // const autocompleteApi = require("./routes/v1/autocomplete-api")
 // const weatherApi = require("./routes/v1/weather-api")
+const main = require("./routes/main")
 // configure app views and static files
 const app = express();
 
@@ -25,13 +26,14 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')))
 app.use('/css', express.static(__dirname + 'public/css'))
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '/public/dist', 'index.html'))
-  // res.render(path.join(__dirname, '/views', 'index.ejs'))
-});
+// app.get('/', (req, res) => {
+//   res.sendFile(path.join(__dirname, '/public/dist', 'index.html'))
+//   // res.render(path.join(__dirname, '/views', 'index.ejs'))
+// });
 
 // app.use("/v1/weather-api", weatherApi)
 // app.use("/v1/autocomplete-api", autocompleteApi)
+app.use("/", main)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

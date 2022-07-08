@@ -3,8 +3,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackPartialsPlugin = require('html-webpack-partials-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 const config = {
-    entry: ["./public/js/weather.js", './views/index.ejs'],
+    entry: ["./public/js/weather.js", './views/index.ejs', "./public/css/main.css"],
     output: {
         path: path.resolve(__dirname, "./public/dist"),
         filename: "bundle.js",
@@ -17,8 +18,14 @@ const config = {
                 use: "babel-loader",
             },
             {
-                test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader, "css-loader"],
+                test: /\.css$/i,
+                use: [{
+                    loader: MiniCssExtractPlugin.loader, options: {
+                        publicPath: "/dist"
+                    },
+                },
+                "css-loader",
+                ],
             },
             {
                 test: /\.svg$/,
@@ -34,10 +41,12 @@ const config = {
         new HtmlWebpackPlugin({
             template: '!!ejs-webpack-loader!./views/index.ejs',
             filename: 'index.html',
-            scriptLoading: 'defer',
+            publicPath: "/dist",
+            scriptLoading: "defer",
+            hash: "true"
         }),
         new MiniCssExtractPlugin({
-            filename: "main.css",
+            filename: "main.css"
         }),
         new CleanWebpackPlugin(),
         new HtmlWebpackPartialsPlugin({
