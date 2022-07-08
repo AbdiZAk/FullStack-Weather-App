@@ -13,6 +13,6 @@ router.get('/', function(req, res, next) {
     res.sendFile(path.join(__dirname, '../public/dist', 'index.html'));
 });
 
-router.get('/weather-api/:lat&:lon', WeatherAPI.getWeather)
+router.get('/weatherapi/:lat&:lon', WeatherAPI.getWeather)
 
 module.exports = router;
