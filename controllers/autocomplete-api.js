@@ -1,8 +1,9 @@
 const fetch = require('node-fetch')
 const {re} = require("@babel/core/lib/vendor/import-meta-resolve");
+
 AUTOCOMPLETE_API_KEY = "a2de75c9d4e14b87a354a37215aef683"
 
-let AutocompleteApiKey = process.env.AUTOCOMPLETE_API_KEY
+let AutocompleteApiKey = AUTOCOMPLETE_API_KEY
 
 // GET weather api page.
 const getAutocomplete = async (req, res) => {
