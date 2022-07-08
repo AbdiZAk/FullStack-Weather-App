@@ -13,6 +13,8 @@ router.get('/', function(req, res, next) {
     res.sendFile(path.join(__dirname, '../public/dist', 'index.html'));
 });
 
-router.get('/api/weather-api/:lat&:lon', WeatherAPI.getWeather)
+router.get('/api/weather-api/:lat&:lon', function (req, res){
+    res.json({Test: "Testing"})
+})
 
 module.exports = router;
