@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const path = require("path")
-
+const WeatherAPI = require("../controllers/weather-api")
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
@@ -13,10 +13,7 @@ router.get('/', function(req, res, next) {
     res.sendFile(path.join(__dirname, '../public/dist', 'index.html'));
 });
 
-router.get('/api', function(req, res) {
-
-    res.json({"message": "Hello"})
-});
+router.get('/api/weather-api/:lat&:lon', WeatherAPI.getWeather)
 
 
 module.exports = router;
