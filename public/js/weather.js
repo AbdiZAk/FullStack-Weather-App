@@ -201,7 +201,7 @@ function addressAutocomplete(containerElement, callback, options) {
             const promise = new Promise((resolve, reject) => {
                 currentPromiseReject = reject;
 
-                let url = `${baseUrl}/api/autocomplete-api/?text=${encodeURIComponent(currentValue)}`
+                let url = `${baseUrl}api/autocomplete-api/?text=${encodeURIComponent(currentValue)}`
                 fetch(url)
                     .then(response => {
                         currentPromiseReject = null;
