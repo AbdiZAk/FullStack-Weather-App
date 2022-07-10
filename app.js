@@ -6,8 +6,8 @@ const cors = require('cors')
 const main = require("./routes/main")
 // configure app views and static files
 const app = express();
-
-const whitelist = ['https://ayweather.herokuapp.com/']
+//https://ayweather.herokuapp.com/
+const whitelist = ['https://example.com/']
 const corsOptions = {
   origin: whitelist
 }
