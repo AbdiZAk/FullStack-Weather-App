@@ -8,6 +8,7 @@ let placeholder = document.querySelector('.placeholder')
 let recentRect = document.querySelector('.recent-rect')
 
 const baseUrl = "https://ayweather.herokuapp.com/"
+
 // function to get call the backend api relay to get weather data
 function getWeather(lat, lon, location){
     // if the lat and lon are not null
@@ -111,9 +112,6 @@ function getWeather(lat, lon, location){
             placeholder.style.display = 'none'
             locationDiv.style.display = 'block'
             recentsArray.push(location)
-
-
-
 
         } // end of useData function
     } // end if else
