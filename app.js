@@ -9,15 +9,10 @@ const app = express();
 
 const whitelist = ['https://ayweather.herokuapp.com/']
 const corsOptions = {
-  origin: (origin, callback) => {
-    if (!origin || whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error("Not allowed by CORS"))
-    }
-  },
-  optionsSuccessStatus: 200
+  origin: whitelist
 }
+
+app.use(cors(corsOptions))
 
 // Configure app views and static files
 app.set('view engine', 'ejs');
@@ -28,7 +23,7 @@ app.use('/css', express.static(__dirname + 'public/css'))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(cors(corsOptions))
+
 
 // app.use("/v1/weather-api", weatherApi)
 // app.use("/v1/autocomplete-api", autocompleteApi)
