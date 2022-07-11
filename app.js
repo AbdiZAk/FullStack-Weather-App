@@ -6,10 +6,17 @@ const cors = require('cors')
 const main = require("./routes/main")
 // configure app views and static files
 const app = express();
-//https://ayweather.herokuapp.com/
-const whitelist = ['https://example.com/']
+
+const whitelist = ['https://ayweather.herokuapp.com/']
 const corsOptions = {
-  origin: whitelist
+  origin: (origin, callback) => {
+    if (!origin || whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error("Not allowed by CORS"))
+    }
+  },
+  optionsSuccessStatus: 200
 }
 
 app.use(cors(corsOptions))
