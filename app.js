@@ -7,15 +7,21 @@ const main = require("./routes/main")
 // configure app views and static files
 const app = express();
 
-const whitelist = ['https://ayweather.herokuapp.com/']
+// const whitelist = ['https://ayweather.herokuapp.com/']
+// const corsOptions = {
+//   origin: (origin, callback) => {
+//     if (!origin || whitelist.indexOf(origin) !== -1) {
+//       callback(null, true)
+//     } else {
+//       callback(new Error("Not allowed by CORS"))
+//     }
+//   },
+//   optionsSuccessStatus: 200
+// }
+
+//setup CORS
 const corsOptions = {
-  origin: (origin, callback) => {
-    if (!origin || whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error("Not allowed by CORS"))
-    }
-  },
+  origin: 'https://ayweather.herokuapp.com',
   optionsSuccessStatus: 200
 }
 
