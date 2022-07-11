@@ -19,13 +19,6 @@ const corsOptions = {
   optionsSuccessStatus: 200
 }
 
-//setup CORS
-// const corsOptions = {
-//   methods: "GET,POST",
-//   preflightContinue: false,
-//   optionsSuccessStatus: 204
-// }
-
 app.use(cors(corsOptions))
 
 // Configure app views and static files

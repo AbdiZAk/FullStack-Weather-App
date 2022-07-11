@@ -1,12 +1,10 @@
 const axios = require('axios')
 
-WEATHER_API_KEY = "04378cdbebbaa0afda239b4cede1b5a4"
+// WEATHER_API_KEY = "04378cdbebbaa0afda239b4cede1b5a4"
 // get weather data
-// let lat = "43.0481"
-// let lon = "76.1474"
 
 async function getWeatherData(lat, lon){
-    let weatherApiKey = WEATHER_API_KEY;
+    let weatherApiKey = process.env.WEATHER_API_KEY;
     let apiUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon +
         "&units=imperial&&appid=" + weatherApiKey;
     return await axios.get(apiUrl)
