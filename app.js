@@ -21,8 +21,10 @@ const app = express();
 
 //setup CORS
 const corsOptions = {
-  origin: 'https://ayweather.herokuapp.com',
-  optionsSuccessStatus: 200
+  origin: "https://ayweather.herokuapp.com",
+  methods: "GET,POST",
+  preflightContinue: false,
+  optionsSuccessStatus: 204
 }
 
 app.use(cors(corsOptions))

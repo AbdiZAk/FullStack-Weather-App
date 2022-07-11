@@ -3,16 +3,10 @@ const router = express.Router();
 const path = require("path")
 const weatherApi = require("../controllers/weather-api")
 const autocompleteApi = require("../controllers/autocomplete-api")
-const cors = require('cors')
 
-
-const corsOptions = {
-    origin: 'https://ayweather.herokuapp.com',
-    optionsSuccessStatus: 200
-}
 
 /* GET home page. */
-router.get('/',cors(corsOptions), function(req, res, next) {
+router.get('/', function(req, res, next) {
 
     const page = req.params.page
     const myData = {
@@ -23,9 +17,9 @@ router.get('/',cors(corsOptions), function(req, res, next) {
 });
 
 // weatherApi Routes GET
-router.get('/api/weather-api/:lat&:lon',cors(corsOptions), weatherApi.getWeatherData_GET)
+router.get('/api/weather-api/:lat&:lon', weatherApi.getWeatherData_GET)
 
 // weatherApi Routes POST
-router.get('/api/autocomplete-api/',cors(corsOptions), autocompleteApi.getAutocomplete)
+router.get('/api/autocomplete-api/', autocompleteApi.getAutocomplete)
 
 module.exports = router;
