@@ -6,7 +6,7 @@ const autocompleteApi = require("../controllers/autocomplete-api")
 
 
 /* GET home page. */
-router.get('/', cors(corsOptions), function(req, res, next) {
+router.get('/', function(req, res, next) {
 
     const page = req.params.page
     const myData = {
