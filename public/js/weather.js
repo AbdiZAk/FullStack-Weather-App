@@ -8,6 +8,7 @@ let placeholder = document.querySelector('.placeholder')
 let recentRect = document.querySelector('.recent-rect')
 
 const baseUrl = "https://ayweather.herokuapp.com/"
+// const baseUrl = "http://localhost:3000/"
 
 // function to get call the backend api relay to get weather data
 function getWeather(lat, lon, location){
@@ -15,9 +16,16 @@ function getWeather(lat, lon, location){
     if(lat && lon) {
         document.getElementById('location').scrollIntoView();
         // Defining async function
-        let url = `${baseUrl}api/weather-api/${lat}&${lon}`
+        let data = {"lat": lat, "lon": lon}
+        let url = `${baseUrl}api/weather-api/`
         // get weather data from API
-        fetch(url).then(response => {
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then(response => {
             return response.json()
         }).then( weatherData => {
             useData(weatherData)

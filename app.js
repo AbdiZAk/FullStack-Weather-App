@@ -4,10 +4,11 @@ const express = require('express');
 const path = require('path');
 const cors = require('cors')
 const main = require("./routes/main")
-// configure app views and static files
+
+//Create express app
 const app = express();
 
-const whitelist = ['https://ayweather.herokuapp.com/']
+const whitelist = ['https://ayweather.herokuapp.com']
 const corsOptions = {
   origin: (origin, callback) => {
     if (!origin || whitelist.indexOf(origin) !== -1) {
@@ -31,9 +32,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-
-// app.use("/v1/weather-api", weatherApi)
-// app.use("/v1/autocomplete-api", autocompleteApi)
 app.use("/", main)
 
 // catch 404 and forward to error handler

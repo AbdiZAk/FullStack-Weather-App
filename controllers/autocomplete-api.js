@@ -1,6 +1,4 @@
 const axios = require("axios")
-const util=require('util');
-// AUTOCOMPLETE_API_KEY = "a2de75c9d4e14b87a354a37215aef683"
 
 let AutocompleteApiKey = process.env.AUTOCOMPLETE_API_KEY
 
