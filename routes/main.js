@@ -2,11 +2,13 @@ const express = require('express');
 const router = express.Router();
 const weatherApi = require("../controllers/weather-api")
 const autocompleteApi = require("../controllers/autocomplete-api")
+const path = require("path");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
-    res.render('index');
+    res.sendFile(path.join(__dirname, '../public/dist', 'index.html'));
+
 });
 
 // weatherApi Routes GET
