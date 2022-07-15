@@ -21,7 +21,6 @@ router.post('/api/weather-api/', function (req, res
     return weatherApi.getWeatherData_POST(req, res)
 })
 
-
-router.get('/api/autocomplete-api/', autocompleteApi.getAutocomplete)
+router.post('/api/autocomplete-api/', autocompleteApi.getAutocomplete)
 
 module.exports = router;

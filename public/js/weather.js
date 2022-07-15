@@ -8,7 +8,6 @@ let placeholder = document.querySelector('.placeholder')
 let recentRect = document.querySelector('.recent-rect')
 
 const baseUrl = "https://ayweather.herokuapp.com/"
-// const baseUrl = "http://localhost:3000/"
 
 // function to get call the backend api relay to get weather data
 function getWeather(lat, lon, location){
@@ -206,9 +205,13 @@ function addressAutocomplete(containerElement, callback, options) {
             // Create a new promise and send geocoding request
             const promise = new Promise((resolve, reject) => {
                 currentPromiseReject = reject;
-
                 let url = `${baseUrl}api/autocomplete-api/?text=${encodeURIComponent(currentValue)}`
-                fetch(url)
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                })
                     .then(response => {
                         currentPromiseReject = null;
 

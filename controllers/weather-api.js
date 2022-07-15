@@ -1,5 +1,4 @@
 const axios = require('axios')
-require("dotenv").config()
 
 async function getWeatherData(lat, lon){
     let weatherApiKey = process.env.WEATHER_API_KEY;
