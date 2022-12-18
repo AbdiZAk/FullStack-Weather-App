@@ -1,9 +1,11 @@
 
 {
-  "devCommand": "devstart",
+  
   "version": 2,
   "builds": [
       {
+          "devCommand": "devstart",
+          "outputDirectory": "public/dist",
           "src": "./app.js",
           "use": "@vercel/node"
       }
