@@ -3,10 +3,6 @@
   "version": "0.0.1",
   "private": true,
   "main": "app.js",
-  "engines": {
-    "node": "16.15.0",
-    "npm": "8.11.0"
-  },
   "scripts": {
     "dev": "webpack serve",
     "webpack-build": "NODE_ENV='production' webpack",
