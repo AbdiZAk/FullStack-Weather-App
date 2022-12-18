@@ -1,2 +1,7 @@
-
+{
+  "buildCommand": "build",
+  "devCommand": "dev",
+  "outputDirectory": "./public/dist",
+  "cleanUrls": false
+}
 
