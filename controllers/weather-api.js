@@ -1,7 +1,9 @@
 const axios = require('axios')
+require('dotenv').config();
 
 async function getWeatherData(lat, lon){
-    let weatherApiKey = process.env.WEATHER_API_KEY;
+    const weatherApiKey = process.env.WEATHER_API_KEY;
+    
     let apiUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon +
         "&units=imperial&&appid=" + weatherApiKey;
     return await axios.get(apiUrl)

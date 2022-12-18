@@ -4,6 +4,7 @@ const fetch = require('node-fetch')
 // get weather data
 const getWeatherData = async (lat, lon) =>{
   let weatherApiKey = process.env.WEATHER_API_KEY;
+  console.log(weatherApiKey)
   let apiUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon +
       "&units=imperial&&appid=" + weatherApiKey;
   try {

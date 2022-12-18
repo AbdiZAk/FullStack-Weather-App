@@ -8,7 +8,7 @@ const main = require("./routes/main")
 //Create express app
 const app = express();
 
-const whitelist = ['https://ayweather.herokuapp.com']
+const whitelist = ['http://localhost:3000', 'localhost:3000']
 const corsOptions = {
   origin: (origin, callback) => {
     if (!origin || whitelist.indexOf(origin) !== -1) {
