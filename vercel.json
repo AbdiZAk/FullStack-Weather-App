@@ -1,0 +1,4 @@
+{
+    "buildCommand": "vercel-postbuild",
+    "devCommand": "devstart"
+  }

@@ -13,7 +13,8 @@
     "start": "node app.js",
     "devstart": "nodemon app.js",
     "watch": "nodemon --ext *",
-    "heroku-postbuild": "npm run webpack-build"
+    "heroku-postbuild": "npm run webpack-build",
+    "vercel-postbuild": "npm run webpack-build"
   },
   "dependencies": {
     "axios": "^0.27.2",
