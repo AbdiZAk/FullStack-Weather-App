@@ -6,13 +6,15 @@ const path = require("path");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-
+    
     res.sendFile(path.join(__dirname, '../public/dist', 'index.html'));
 
 });
 
 // weatherApi Routes GET
 router.get('/api/weather-api/', (req, res) => {
+    res.setHeader('Content-Type', 'text/html');
+    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
     res.json({
     Message: "GET Request Not Allowed"
     })
@@ -20,6 +22,8 @@ router.get('/api/weather-api/', (req, res) => {
 
 router.post('/api/weather-api/', function (req, res
 ){
+    res.setHeader('Content-Type', 'text/html');
+    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
     return weatherApi.getWeatherData_POST(req, res)
 })
 

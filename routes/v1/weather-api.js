@@ -24,6 +24,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.get(":lat&:lon", async (req, res) => {
+
+  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   req.header("Access-Control-Allow-Origin",)
   const lat = req.params.lat
   const lon = req.params.lon
@@ -32,6 +35,8 @@ router.get(":lat&:lon", async (req, res) => {
 })
 
 router.post('/', async (req, res) =>{
+  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   const lat = req.body.lat
   const lon = req.body.lon
   console.log(req.body)
