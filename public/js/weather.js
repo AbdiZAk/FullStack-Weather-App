@@ -7,9 +7,8 @@ let footer = document.getElementById('footer')
 let placeholder = document.querySelector('.placeholder')
 let recentRect = document.querySelector('.recent-rect')
 
-// const baseUrl = "https://ayweather.herokuapp.com/"
+const baseUrl = "https://ayweather.vercel.app/"
 
-const baseUrl = ''
 // function to get call the backend api relay to get weather data
 function getWeather(lat, lon, location){
     // if the lat and lon are not null
@@ -17,7 +16,7 @@ function getWeather(lat, lon, location){
         document.getElementById('location').scrollIntoView();
         // Defining async function
         let data = {"lat": lat, "lon": lon}
-        let url = `api/weather-api/`
+        let url = `${baseUrl}api/weather-api/`
         // get weather data from API
         fetch(url, {
             method: 'POST',
@@ -206,7 +205,7 @@ function addressAutocomplete(containerElement, callback, options) {
             // Create a new promise and send geocoding request
             const promise = new Promise((resolve, reject) => {
                 currentPromiseReject = reject;
-                let url = `api/autocomplete-api/?text=${encodeURIComponent(currentValue)}`
+                let url = `${baseUrl}api/autocomplete-api/?text=${encodeURIComponent(currentValue)}`
                 fetch(url, {
                     method: 'POST',
                     headers: {
