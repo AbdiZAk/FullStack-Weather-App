@@ -9,9 +9,8 @@ let AutocompleteApiKey = process.env.AUTOCOMPLETE_API_KEY
 router.get('/', function(req, res, next) {
     //get weather api params
     let query = req.query
-    let apiUrl = `https://api.geoapify.com/v1/geocode/autocomplete?text=${query.text}&format=json&
-    limit=5&apiKey=${AutocompleteApiKey}`;
-
+    let apiUrl = `https://weather-api-ashy-one.vercel.app/api/autocomplete?${query}`;
+    
     const autocomplete = async () => {
         try {
         const suggestionsResponse = await fetch(apiUrl)

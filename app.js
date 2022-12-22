@@ -8,7 +8,7 @@ const main = require("./routes/main")
 //Create express app
 const app = express();
 
-const whitelist = ['https://ayweather.vercel.app/']
+const whitelist = ['https://ayweather.vercel.app/',]
 const corsOptions = {
   origin: (origin, callback) => {
     if (!origin || whitelist.indexOf(origin) !== -1) {

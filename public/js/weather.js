@@ -7,7 +7,8 @@ let footer = document.getElementById('footer')
 let placeholder = document.querySelector('.placeholder')
 let recentRect = document.querySelector('.recent-rect')
 
-const baseUrl = "https://ayweather.vercel.app/"
+// const baseUrl = "https://ayweather.vercel.app/"
+const baseUrl = ''
 
 // function to get call the backend api relay to get weather data
 function getWeather(lat, lon, location){

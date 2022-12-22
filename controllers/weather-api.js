@@ -4,8 +4,7 @@ require('dotenv').config();
 async function getWeatherData(lat, lon){
     const weatherApiKey = process.env.WEATHER_API_KEY;
     
-    let apiUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon +
-        "&units=imperial&&appid=" + weatherApiKey;
+    let apiUrl = `https://weather-api-ashy-one.vercel.app/api/weather/?lat=${lat}&lon=${lon}`
     return await axios.get(apiUrl)
 }
 

@@ -1,12 +1,10 @@
 const axios = require("axios")
 require('dotenv').config();
 
-
 async function getAutocompleteData(text){
     const AutocompleteApiKey = process.env.AUTOCOMPLETE_API_KEY
     
-    let apiUrl = `https://api.geoapify.com/v1/geocode/autocomplete?text=${text}&format=json&
-    limit=5&apiKey=${AutocompleteApiKey}`;
+    let apiUrl = `https://weather-api-ashy-one.vercel.app/api/autocomplete?text=${text}`;
     return await axios.get(apiUrl)
 }
 
